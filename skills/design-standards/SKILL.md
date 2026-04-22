@@ -27,15 +27,33 @@ Apply these rules to every piece of UI you build or modify.
 - **Neutrals:** zinc/slate scale
 - **Never** override shadcn's CSS variables without a clear reason
 
+## Typography
+
+- **Font family:** system font stack only — never import custom or Google Fonts
+  - Tailwind's `font-sans` is correct: `ui-sans-serif, system-ui, sans-serif`
+  - shadcn's default `font-sans` variable is acceptable as-is — do not override it
+- **Base font size:** 16px (1rem) — this is the browser default and the grid anchor
+- **Minimum font sizes (WCAG 2.1 AA):**
+  - Body / default text: `text-base` (16px) minimum
+  - Secondary / supporting text: `text-sm` (14px) minimum
+  - Labels, captions, badges: `text-xs` (12px) minimum — only with sufficient contrast (4.5:1)
+  - **Never go below 12px for any visible text**
+  - Never use 9px or any sub-12px size — fails accessibility standards
+- **16px base grid:** all spacing, sizing, and layout values must be multiples of 4px (Tailwind's spacing scale — `p-1`=4px, `p-2`=8px, `p-4`=16px, `p-8`=32px). Prefer multiples of 16px for major layout sections.
+- **Line height:** `leading-normal` (1.5) minimum for body text; `leading-tight` only for headings
+- **Font weight:** use Tailwind scale (`font-normal`, `font-medium`, `font-semibold`, `font-bold`) — no raw numeric weights
+
 ## Layout
 
 - **Mobile-first** — design for small screens, scale up: `sm:` `md:` `lg:` `xl:`
 - Use `flex` and `grid` via Tailwind; avoid fixed pixel widths
 - Minimum tap target size: 44×44px on mobile
+- All spacing must follow the 16px base grid (multiples of 4px via Tailwind spacing scale)
 
 ## Accessibility (WCAG 2.1 AA)
 
-- Color contrast ratio: minimum 4.5:1 for text, 3:1 for large text
+- Color contrast ratio: minimum 4.5:1 for text, 3:1 for large text and UI components
+- Small text (12–14px) requires higher contrast — aim for 4.5:1 minimum
 - All interactive elements must be keyboard-navigable
 - Use semantic HTML (`button`, `nav`, `main`, `section`, not just `div`)
 - Add `aria-label` on icon-only buttons and form inputs without visible labels
