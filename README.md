@@ -19,7 +19,7 @@ Once installed, Claude automatically applies these rules whenever you build UI o
 
 ---
 
-## Installation (do this once)
+## Installation — macOS
 
 ### Step 1 — Install nvm and Node (skip if already installed)
 
@@ -27,9 +27,10 @@ Once installed, Claude automatically applies these rules whenever you build UI o
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
-Then add nvm to your shell so it loads in every new terminal (run once):
+Create your zsh profile if it doesn't exist, then add nvm to it:
 
 ```bash
+touch ~/.zshrc
 echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
 ```
 
@@ -38,8 +39,6 @@ Close and reopen your terminal, then install Node:
 ```bash
 nvm install --lts
 ```
-
-> **Troubleshooting:** If `nvm` is still not found, run `export NVM_DIR="$HOME/.nvm" && source "$NVM_DIR/nvm.sh"` to load it in the current session, then retry.
 
 ### Step 2 — Install the Claude Code CLI
 
@@ -56,7 +55,7 @@ claude --version
 ### Step 3 — Add the team marketplace
 
 ```bash
-claude plugin marketplace add github:atlasrisekft/claude-standards
+claude plugin marketplace add atlasrisekft/claude-standards
 ```
 
 ### Step 4 — Install the plugin
@@ -65,13 +64,56 @@ claude plugin marketplace add github:atlasrisekft/claude-standards
 claude plugin install claude-standards@atlasrisekft-standards
 ```
 
-Done. Restart VS Code and the plugin is active in all your Claude Code sessions.
+Restart VS Code — the plugin is now active in all Claude Code sessions.
+
+---
+
+## Installation — Windows
+
+### Step 1 — Install Node.js
+
+Download and run the installer from [nodejs.org](https://nodejs.org) (LTS version). This installs both `node` and `npm` automatically.
+
+Verify in PowerShell:
+
+```powershell
+node --version
+npm --version
+```
+
+### Step 2 — Install the Claude Code CLI
+
+Open PowerShell and run:
+
+```powershell
+npm install -g @anthropic-ai/claude-code
+```
+
+Verify:
+
+```powershell
+claude --version
+```
+
+### Step 3 — Add the team marketplace
+
+```powershell
+claude plugin marketplace add atlasrisekft/claude-standards
+```
+
+### Step 4 — Install the plugin
+
+```powershell
+claude plugin install claude-standards@atlasrisekft-standards
+```
+
+Restart VS Code — the plugin is now active.
 
 ---
 
 ## Updating
 
-When the plugin is updated, pull the latest version:
+When the plugin is updated, run:
 
 ```bash
 claude plugin update claude-standards
