@@ -27,11 +27,19 @@ Once installed, Claude automatically applies these rules whenever you build UI o
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
-Close and reopen your terminal, then:
+Then add nvm to your shell so it loads in every new terminal (run once):
+
+```bash
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc && echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"' >> ~/.zshrc
+```
+
+Close and reopen your terminal, then install Node:
 
 ```bash
 nvm install --lts
 ```
+
+> **Troubleshooting:** If `nvm` is still not found, run `export NVM_DIR="$HOME/.nvm" && source "$NVM_DIR/nvm.sh"` to load it in the current session, then retry.
 
 ### Step 2 — Install the Claude Code CLI
 
