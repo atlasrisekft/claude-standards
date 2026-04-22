@@ -1,0 +1,20 @@
+{
+  "name": "atlasrisekft-standards",
+  "description": "Team standards for UI/UX design, code style, and git conventions",
+  "owner": {
+    "name": "atlasrisekft"
+  },
+  "plugins": [
+    {
+      "name": "claude-standards",
+      "description": "Team standards for UI/UX design, code style, and git conventions — React + Vite + shadcn stack",
+      "version": "1.0.0",
+      "category": "development",
+      "author": {
+        "name": "atlasrisekft"
+      },
+      "source": "./",
+      "keywords": ["standards", "design", "ux", "react", "vite", "shadcn", "tailwind"]
+    }
+  ]
+}
